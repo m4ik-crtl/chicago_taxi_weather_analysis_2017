@@ -38,7 +38,15 @@ FROM trips t
 JOIN weather_records w ON t.start_ts = w.ts
 WHERE
   t.pickup_location_id = 50 AND
-  t.dropoff_location_id = 63 AND
+ t.dropoff_location_id = 63 AND
   EXTRACT(DOW FROM t.start_ts) = 6 AND
   w.description IS NOT NULL
 ORDER BY t.trip_id;
+```
+## 📎 Dados Utilizados
+
+- **Clima**: Extraído via scraping da página HTML pública [Visualizar dados de clima (Chicago 2017)](https://practicum-content.s3.us-west-1.amazonaws.com/data-analyst-eng/moved_chicago_weather_2017.html)
+- **Corridas**: Tabelas PostgreSQL fictícias com estrutura realista (`cabs`, `trips`, `weather_records` etc.)
+
+
+ 
